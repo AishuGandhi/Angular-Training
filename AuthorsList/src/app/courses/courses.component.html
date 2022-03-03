@@ -1,0 +1,15 @@
+<p>Courses Works!</p>
+<!--Reason to add $any https://www.tektutorialshub.com/angular/property-value-does-not-exist-on-type-eventtarget-error-in-angular/-->
+<input [value]="email" (keyup.enter)="email=$any($event.target).value; onKeyUp();"/>
+<br>
+<br>
+<!--Angular Provides Directive ngModel for Two way Binding -->
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp();"/>
+
+<br>
+Title:{{course.title | uppercase | lowercase}}<br>
+Number of Students:{{course.students | number}}<br>
+Price:{{course.price | currency:'INR':true:'3.2-2'}}<br>
+Ratings:{{course.rating |number:'2.2-2'}}<br>
+ReleaseDate:{{course.releaseDate | date:'shortDate'}}<br>
+Text:{{text | summary:10}}

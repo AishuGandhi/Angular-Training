@@ -1,27 +1,24 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { SummaryPipe } from 'src/summary.pipe';
 
 import { AppComponent } from './app.component';
-import { AuthorsService } from './authors.service';
-import { AuthorsComponent } from './authors/authors.component';
-import { CoursesComponent } from './courses/courses.component';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { TitlecaseComponent } from './titlecase/titlecase.component';
+import { TitleCasePipe } from './title-case.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthorsComponent,
-    CoursesComponent,
-    SummaryPipe
+    FavouriteComponent,
+    TitlecaseComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [
-    AuthorsService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

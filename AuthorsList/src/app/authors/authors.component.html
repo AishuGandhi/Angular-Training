@@ -4,4 +4,38 @@
     {{author}}
   </li>
 </ul>
+<table>
+  <tr>
+    <!--attr is used all properties of tag are not available directly in dom-->
+    <td [attr.colSpan]="colspan"></td>
+  </tr>
+</table>
+<!--Attribute Interpolation-->
+<img [src]="imageURL"/>
+<!--[class.active] class binding to add classes dynamically based upon some condition-->
+<div (click)="onDivClicked()">
+  <button class="btn btn-primary" [class.active]="isActive" (click)="onSave($event)">Save</button>
+</div>
 
+<br>
+<!--[style.backgroundColor] style binding to add classes dynamically based upon some condition-->
+<button [style.backgroundColor]="isActive?'yellow':'white'">Save</button>
+<br>
+<br>
+<!--With Event Filtering-->
+<input (keyup)="onKeyUp($event)"/>
+
+<br>
+<br>
+<!--Without Event Filtering called method only if enter is pressed-->
+<input (keyup.enter)="onKeyUpWithoutEvent()"/>
+
+<br>
+<br>
+<!--With Event Filtering called method only if enter is pressed-->
+<input (keyup.enter)="onKeyUpWithEvent($event)"/>
+
+<br>
+<br>
+<!--Withou Event Filtering and template variables-->
+<input #email (keyup.enter)="onKeyUpWithoutEventValue(email.value)"/>
