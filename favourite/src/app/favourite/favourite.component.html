@@ -1,7 +1,19 @@
 
+<!--
+Inline CSS
+<style>
+  .glyphicon
+    {
+      color:blue;
+    }
+</style>-->
 <span
 class="glyphicon"
 [class.glyphicon-star]="isFavourite"
 [class.glyphicon-star-empty]="!isFavourite"
 (click)="onClick()"
+></span>
+
+<span
+class="glyphicon glyphicon-user"
 ></span>
