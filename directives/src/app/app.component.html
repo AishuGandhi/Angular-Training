@@ -1,15 +1,110 @@
+<h2>Zippy Component Assignment</h2>
+<zippy title="Shipping Details">
+   Shipping Details Content
+</zippy>
+<zippy title="Billing Details">
+  Billing Details Content
+</zippy>
+
+<h3>Example of Ng If</h3>
 <!--ngIf Directive-->
 <div *ngIf="courses.length > 0; else noCourses">
-    List of courses
+    <h4>List of Courses</h4>
 </div>
 <ng-template #noCourses>
-    No courses yet
+    <h4>No Courses yet</h4>
+</ng-template>
+<!--
+  *************  Use of asterisk infront of ngIf is angular will creat following code ********************
+<ng-template [ngIf]="courses.length > 0">
+  <div>
+    <h4>List of Courses</h4>
+  </div>
+</ng-template>
+<ng-template  [ngIf]="!(courses.length > 0)">
+  <div>
+    <h4> No Courses Yet</h4>
+  </div>
 </ng-template>
 <br>
+
+-->
+
+<h3>Example of Hidden Attribute</h3>
 <!--Hidden Attribute-->
 <div [hidden]="courses.length == 0">
-  List of courses
+  <h4>List of Courses</h4>
 </div>
 <div [hidden]="courses.length > 0">
-  No courses yet
+  <h4>No Courses Yet</h4>
 </div>
+<h3>Example of Ng Switch Case</h3>
+<!--ngSiwtch Case-->
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map View</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click)="viewMode='list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Contetnt</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<h3>Example of Ng For</h3>
+<button (click)="loadCourses()">Load Courses</button> &nbsp;
+<button (click)="onAdd()">Add</button>
+<!--ngFor-->
+<h4 *ngIf="courseArr!=null">
+   We have following {{courseArr.length}} courses
+</h4>
+  <ul>
+    <li *ngFor="let course of courseArr; index as i">
+      {{i}} - {{course.name}}
+      <button (click)="onRemove(course)">Remove</button>
+      &nbsp;
+      <button (click)="onChange(course)">Update</button>
+    </li>
+  </ul>
+
+  <ul>
+    <li *ngFor="let course of courseArr; odd as isOdd; even as isEven">
+      {{course.name}}
+      <span *ngIf="isOdd">(EVEN)</span>
+      <span *ngIf="isEven">(ODD)</span>
+    </li>
+  </ul>
+
+  <ul>
+    <li *ngFor="let course of courseArr; trackBy : trackCourse">
+      {{course.name}}
+    </li>
+  </ul>
+
+<h3>Example of ngStyle</h3>
+  <!--Example of ngStyle-->
+  <!--
+    ngStyle replaces this
+    [style.backgroundColor]="canSave?'blue':'grey'"
+           [style.color]="canSave?'white':'yellow'"
+           [style.fontWeight]="canSave?'bold':'normal'"-->
+  <button
+      [ngStyle]="{
+          'backgroundColor' : canSave?'blue':'grey',
+          'color' : canSave?'white':'yellow',
+           'fontWeight':canSave?'bold':'normal'
+      }"
+    >
+    Save
+  </button>
+ <!--Safe Traversal Operator To Avoid Cannot find property of null-->
+   <br>
+  <span >{{ task.assignee?.name }}</span>
+
+  <!--To have more control of DOM elements-->
+  <h3>Custom Directive Example</h3>
+
+  <!--<input type="text" appInputFormat [format]="'uppercase'">-->
+
+  <input type="text" appInputFormat="'uppercase'">
+
+

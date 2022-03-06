@@ -2,14 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { InputFormatDirective } from './input-format.directive';
-import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputFormatDirective,
-    ZippyComponent
+    ContactFormComponent
   ],
   imports: [
     BrowserModule
